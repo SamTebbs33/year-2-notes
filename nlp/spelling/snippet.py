@@ -11,42 +11,42 @@ sum_words = sum(WORDS.values())
 # Number of distinct words
 num_words = len(WORDS)
 
+def bigtxt_word_exists(word): return WORDS[word] > 0
+
 # Returns probability of a word appearing
-def prob(word): return WORDS[word] / sum_words
+def prob(word): return WORDS[word] * 1.0 / sum_words
+
+def tuplify(word):
+    return [(word[0:x], word[x:len(word)]) for x in range(len(word)+1)]
+
+def operate(p, f, l, word):
+    result = []
+    for t in tuplify(word):
+        for c in l:
+            if p(t, c):
+                val = f(t, c)
+                if bigtxt_word_exists(val): result.append(f(t, c))
+    return result
 
 def insert_edits(word):
-    word_len = len(word)
-    result = []
-    for x in range(0, word_len + 1):
-        prefix = word[0:x]
-        suffix = word[x:word_len]
-        for y in range(0, 26):
-            char = chr(97 + y)
-            result.append(prefix + char + suffix)
-    return result
+    return operate(lambda t, c: True, lambda t, c: t[0] + c + t[1], ascii_lowercase, word)
 
 def remove_edits(word):
-    result = []
-    word_len = len(word)
-    for x in range(0, word_len):
-        prefix = word[0:x]
-        suffix = word[x + 1:word_len]
-        result.append(prefix + suffix)
-    return result
+    return operate(lambda t, c: t[0], lambda t, c: t[0][0:len(t[0])-1] + t[1], [""], word)
 
 def change_edits(word):
-    result = []
-    word_len = len(word)
-    for x in range(0, word_len):
-        prefix = word[0:x]
-        suffix = word[x + 1:word_len]
-        for y in range(0, 26):
-            char = chr(97 + y)
-            result.append(prefix + char + suffix)
-    return result
-
+    return operate(lambda t, c: t[1], lambda t, c: t[0] + c + t[1][1:len(t[1])], ascii_lowercase, word)
+    
 def edits(word):
-    edits = insert_edits(word)
-    edits.extend(remove_edits(word))
-    edits.extend(change_edits(word))
-    return edits
+    return insert_edits(word) + remove_edits(word) + change_edits(word)
+
+def corrections(word):
+    if WORDS[word] > 0: return []
+    return sorted(edits(word), key=prob, reverse=True)
+
+def main():
+    input_words = raw_input("Enter text: ").split(" ")
+    for word in input_words:
+        print(word + " => [" + ", ".join(corrections(word)) + "]")
+
+main()
