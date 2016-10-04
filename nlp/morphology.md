@@ -7,7 +7,7 @@ Classifying text by language can be done by producing a model of spelling of var
 Describe a chain of input with a start and end. Non-deterministic FSAs have chains whose paths cannot be determined (e.g there could be two possible branches)
 
 ![Finite state automata](img/fsa.png)
-![Non-deterministic finite state automata](img/fsa_nondterministic.png)
+![Non-deterministic finite state automata](img/fsa_nondeterministic.png)
 
 ## Regex
 Regexes are equivalent to FSAs and describe the same set of languages (regular languages). Translating regex to FSA can use Thompson Consruction algorithm. [Translating from FSA to regex](http://cs.stackexchange.com/questions/2016/how-to-convert-finite-automata-to-regular-expressions)
