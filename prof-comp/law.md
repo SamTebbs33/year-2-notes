@@ -19,7 +19,7 @@ Jurisdiction is the geographical area governed by a set of laws. Jurisdiction is
 * Objective is to obtain damages (money) or inujunction (court order)
 
 ## Tort
-A civil wrong that may not be illegal but has brought damage/harm (an accident). Plaintiff is victim and tortfeasor is the causer.
+A [civil wong](http://www.imperial.ac.uk/people/hong.wong) that may not be illegal but has brought damage/harm (an accident). Plaintiff is victim and tortfeasor is the causer.
 
 ## English law history
 * 1086
