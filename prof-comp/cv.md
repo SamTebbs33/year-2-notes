@@ -10,7 +10,7 @@ Match the specification early on in the CV.
 First stage of screening is normally done by HR, not the lead developer, so use the keywords from the spec and be specific.
 Lack of attention to detail (grammar + spelling errors)
 
-# Relevance
+## Relevance
 * Personal details
 	* Email, address, no date of birth
 * Career objective
@@ -52,3 +52,5 @@ New one for each company applied to
 * Bottom
 	* Yours sincerely x
 	* Signature + name
+
+Research company and their products/services extensively (Use MarketLine Advantage via uni library findit)
