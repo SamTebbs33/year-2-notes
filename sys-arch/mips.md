@@ -36,6 +36,9 @@
 | $fp | $30 | Frame pointer |
 | $ra | $31 | Functionr return address (Not put on stack?) |
 
+## Instruction set
+
+![Instruction set](img/mips_isa.png)
 
 ## Program
 ```assembly
